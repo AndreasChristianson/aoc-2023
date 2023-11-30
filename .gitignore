@@ -1,0 +1,7 @@
+**/input*
+.idea
+**/node_modules/*
+**/target/
+.vscode
+**/.DS_Store
+*.dump
