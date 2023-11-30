@@ -32,19 +32,14 @@ day1() ->
     end,
     Lines
   ),
-%%  erlang:display(AsInts),
   MultiLists = split_on_blank(AsInts),
-%%  erlang:display(MultiLists),
   Sums = sum_groups(MultiLists),
-%%  erlang:display(Sums),
   Max = find_max(Sums),
   erlang:display(Max),
   Max3 = find_max_three(Sums),
-  erlang:display(Max3),
   erlang:display(sum_groups(Max3))
 .
 
-%%  even_print(AsInts).
 
 
 
