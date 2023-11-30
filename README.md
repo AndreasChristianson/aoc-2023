@@ -44,7 +44,7 @@ If I can't get a language off the ground, or it seems like the language doesn't 
 
 ## outlawed
 
-These have proving trying in the past.
+These have proved trying in the past.
 
 - elixir
 - swift/objective-c
