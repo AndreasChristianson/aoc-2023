@@ -1,9 +1,6 @@
 -module('aoc').
 -author("sullage").
--export([hello_world/0, day1/0, readlines/1]).
-%%-on_load(hello_world/0).
-
-% comment
+-export([day1/0]).
 
 readlines(FileName) ->
   {ok, Device} = file:open(FileName, [read]),
@@ -18,58 +15,37 @@ get_all_lines(Device) ->
     Line -> [string:trim(Line) | get_all_lines(Device)]
   end.
 
-hello_world() ->
-  io:fwrite("hello, world\n").
-
 day1() ->
   Lines = readlines("input.txt"),
-%%  erlang:display(Lines),
-  AsInts = lists:map(
-    fun(X) -> AsInt = case X of
-                        blank -> blank;
-                        S -> {Int, []} = string:to_integer(S), Int
-                      end, AsInt
-    end,
+  JustNumbers = lists:map(
+    fun(X) -> filter_toNumbers(X) end,
     Lines
   ),
-  MultiLists = split_on_blank(AsInts),
-  Sums = sum_groups(MultiLists),
-  Max = find_max(Sums),
-  erlang:display(Max),
-  Max3 = find_max_three(Sums),
-  erlang:display(sum_groups(Max3))
+  FirstAndLast = lists:map(
+    fun(X) -> [first(X), last(X)]
+    end,
+    JustNumbers
+  ),
+  erlang:display(lists:sum(lists:flatten(FirstAndLast)))
 .
 
+first([H | _]) -> H * 10.
 
+last([H | T]) when T == [] -> H;
+last([_ | T]) -> last(T).
 
-
-split_on_blank([]) -> [];
-split_on_blank([H | T]) when H == blank ->
-  [split_on_blank(T)];
-split_on_blank([H | T]) ->
-  [H | split_on_blank(T)].
-
-sum_groups(L) -> sum_groups(L, 0).
-
-sum_groups([], Sum) -> [Sum];
-sum_groups([H | T], Sum) when not erlang:is_list(H) ->
-  sum_groups(T, H + Sum);
-sum_groups([H | _], Sum) ->
-  [Sum | sum_groups(H)].
-
-
-find_max(L) -> find_max(L, na).
-find_max([], Max) -> Max;
-find_max([H | T], Max) when na == Max -> find_max(T, H);
-find_max([H | T], Max) when H > Max -> find_max(T, H);
-find_max([_ | T], Max) -> find_max(T, Max).
-
-find_max_three(L) -> find_max_three(L, na, na, na).
-find_max_three([], Max1, Max2, Max3) -> [Max1, Max2, Max3];
-find_max_three([H | T], Max1, Max2, Max3) when na == Max1 -> find_max_three(T, H, Max2, Max3);
-find_max_three([H | T], Max1, Max2, Max3) when na == Max2 -> find_max_three(T, Max1, H, Max3);
-find_max_three([H | T], Max1, Max2, Max3) when na == Max3 -> find_max_three(T, Max1, Max2, H);
-find_max_three([H | T], Max1, Max2, _) when H > Max1 -> find_max_three(T, H, Max1, Max2);
-find_max_three([H | T], Max1, Max2, _) when H > Max2 -> find_max_three(T, Max1, H, Max2);
-find_max_three([H | T], Max1, Max2, Max3) when H > Max3 -> find_max_three(T, Max1, Max2, H);
-find_max_three([_ | T], Max1, Max2, Max3) -> find_max_three(T, Max1, Max2, Max3).
+filter_toNumbers([]) -> [];
+filter_toNumbers([$o,$n,$e| T]) ->[1 | filter_toNumbers([$e|T])];
+filter_toNumbers([$t,$w,$o | T]) ->[2 | filter_toNumbers([$o|T])];
+filter_toNumbers([$t,$h,$r,$e,$e | T]) ->[3 | filter_toNumbers([$e|T])];
+filter_toNumbers([$f,$o,$u,$r | T]) ->[4 | filter_toNumbers(T)];
+filter_toNumbers([$f,$i,$v,$e | T]) ->[5 | filter_toNumbers([$e|T])];
+filter_toNumbers([$s,$i,$x | T]) ->[6 | filter_toNumbers(T)];
+filter_toNumbers([$s,$e,$v,$e,$n | T]) ->[7 | filter_toNumbers([$n|T])];
+filter_toNumbers([$e,$i,$g,$h,$t | T]) ->[8 | filter_toNumbers([$t|T])];
+filter_toNumbers([$n,$i,$n,$e | T]) ->[9 | filter_toNumbers([$e|T])];
+filter_toNumbers([H | T]) ->
+  case string:to_integer([H]) of
+    {error, no_integer} -> filter_toNumbers(T);
+    {N, _} -> [N | filter_toNumbers(T)]
+  end.
