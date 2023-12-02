@@ -3,63 +3,57 @@
 use warnings;
 use strict;
 
-sub ltrim { my $s = shift; $s =~ s/^\s+//;       return $s };
-sub rtrim { my $s = shift; $s =~ s/\s+$//;       return $s };
-sub  trim { my $s = shift; $s =~ s/^\s+|\s+$//g; return $s };
+use Cwd qw(abs_path);
+use File::Basename qw(dirname);
+use lib dirname(abs_path($0));
 
-print "Hello, World!","\n";
+use Data::Dumper;
 
-print "1234"+0.567,"\n";
+use Tools;
 
-my $filename = 'example.txt';
+my $filename = 'input.txt';
+# my $filename = 'example.txt';
 
 open(FH, '<', $filename) or die $!;
 
+my %allowed = (
+    "red"   => 12,
+    "green" => 13,
+    "blue"  => 14,
+);
+my %indexMap = (
+    "red"   => 0,
+    "green" => 1,
+    "blue"  => 2,
+);
+
+# my $games = ();
 my $sum = 0;
+line:
+while (<FH>) {
+    $_ =~ /Game (\d+): (.*)/; # parse out values
+    my $id = $1;
+    my $results = $2;
 
-while(<FH>){
-   $_ =~ s/^\s+|\s+$//g;
-   print "I saw [$_]", "\n";
-   $sum+=$_;
+    my @pulls = split /;/, $results;
+    my $pull;
+    my @mins = (0,0,0);
+    foreach $pull (@pulls) {
+        my @colors = split /,/, $pull;
+        my $color;
+        foreach $color (@colors) {
+            $color = Tools::trim($color);
+            $color =~ /(\d+) (.*)/;
+            my $number = $1;
+            my $name = $2;
+            my $currentMin = @mins[$indexMap{$name}];
+            @mins[$indexMap{$name}] = $number if($currentMin < $number);
+            # next line if($allowed{$name} < $number);
+        }
+    }
+    print $mins[0]*$mins[1]*$mins[2], "\n";
+    $sum += $mins[0]*$mins[1]*$mins[2], "\n";
 }
 
-print $sum, "\n";
+print $sum, "\n"
 
-my $text = "Hello, World!";
-my $i = 0;
-
-for $i (0..length($text)-1){
-    my $char = substr($text, $i, 1);
-    print "Index: $i, Text: $char \n";
-}
-foreach $i(5..10){
-    print $i."\n";
-}
-
-my $char;
-foreach $char (split //, $text) {
-  print "$char\n";
-}
-my @days = qw(Mon Tue Wed Thu Fri Sat Sun);
-print("@days" ,"\n");
-
-my @stack = ();
-
-print("push 1 to array\n");
-
-push(@stack,1);
-
-print("push 2 to array\n");
-push(@stack,2);
-
-print("push 3 to array\n");
-push(@stack,3);
-
-print("@stack", "\n");
-
-my $elem = pop(@stack);
-print("element: $elem\n");
-
-
-my $last = $#days;
-print($last," - ",$days[$last], "\n");
