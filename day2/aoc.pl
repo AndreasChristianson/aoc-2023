@@ -7,8 +7,6 @@ use Cwd qw(abs_path);
 use File::Basename qw(dirname);
 use lib dirname(abs_path($0));
 
-use Data::Dumper;
-
 use Tools;
 
 my $filename = 'input.txt';
@@ -27,7 +25,6 @@ my %indexMap = (
     "blue"  => 2,
 );
 
-# my $games = ();
 my $sum = 0;
 line:
 while (<FH>) {
@@ -37,7 +34,7 @@ while (<FH>) {
 
     my @pulls = split /;/, $results;
     my $pull;
-    my @mins = (0,0,0);
+    my @mins = (0, 0, 0);
     foreach $pull (@pulls) {
         my @colors = split /,/, $pull;
         my $color;
@@ -47,13 +44,11 @@ while (<FH>) {
             my $number = $1;
             my $name = $2;
             my $currentMin = @mins[$indexMap{$name}];
-            @mins[$indexMap{$name}] = $number if($currentMin < $number);
+            @mins[$indexMap{$name}] = $number if ($currentMin < $number);
             # next line if($allowed{$name} < $number);
         }
     }
-    print $mins[0]*$mins[1]*$mins[2], "\n";
-    $sum += $mins[0]*$mins[1]*$mins[2], "\n";
+    $sum += $mins[0] * $mins[1] * $mins[2];
 }
 
-print $sum, "\n"
-
+print $sum, "\n";
