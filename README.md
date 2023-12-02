@@ -4,31 +4,31 @@
 
 The current plan for using a different language each day.
 
-1. erlang
-2. perl
-3. scheme
-7. bash/sh + coreutils
-7. F#
-5. COBOL 2023
-8. clojure
-4. groovy
-11. rust
-12. java 1.2 ( first java with collection classes )
-13. ruby
-10. typescript
-14. c++
-15. visual basic ( .NET core )
-16. nim
-17. c
-18. lua
-19. zig
-20. java 21
-21. C#
-22. kotlin
-25. deno ( yes, I know this is cheating )
-24. dart
-25. javascript
-26. go
+1. erlang/OTP (26)
+2. perl (v5.30.3)
+3. scheme ([mit](https://www.gnu.org/software/mit-scheme/) 12.1)
+4. bash/sh + coreutils
+5. F#
+6. COBOL 2023
+7. clojure
+8. groovy
+9. rust
+10. java 1.2 ( first java with collection classes )
+11. ruby
+12. typescript
+13. c++
+14. visual basic ( .NET core )
+15. nim
+16. c
+17. lua
+18. zig
+19. java 21
+20. C#
+21. kotlin
+22. deno ( yes, I know this is cheating )
+23. dart
+24. javascript
+25. go
 
 ## alternatives
 
