@@ -4,24 +4,46 @@
 
 The current plan for using a different language each day.
 
+### ratings
+
+- tooling: How easy was it to install, how easy to get to hello world, how was there ide support, did the errors messages make sense
+- experience: How much experience did I have with this sort of language going in.
+- sugar: How much syntactical sugar was built into the language, how easy was it to pull outside modules, how big is the ecosystem
+- brevity: How terse is the language. Is it good for doing things quickly. Is it a good fit for scripting
+
 1. erlang/OTP (26)
+   - tooling (6/10)
+   - experience (3/10)
+   - sugar (5/10)
+   - brevity (4/10)
+   - list comprehensions area pretty readable in erlang.
 2. perl (v5.30.3)
+   - tooling (7/10)
+   - experience (2/10)
+   - sugar (7/10)
+   - brevity (9/10)
+   - Like bash but none of the variable prefix rules make sense.
 3. scheme (racket-8.11.1)
-4. bash/sh + coreutils
+   - tooling (4/10)
+   - experience (4/10)
+   - sugar (3/10)
+   - brevity (3/10)
+   - build your own mapping functions seems to be "the lisp way."
+4. bash
 5. F#
 6. COBOL 2023
-7. clojure
+7. nim
 8. groovy
 9. rust
 10. java 1.2 ( first java with collection classes )
 11. ruby
 12. typescript
-13. c++
+13. zig
 14. visual basic ( .NET core )
-15. nim
+15. c++
 16. c
 17. lua
-18. zig
+18. python
 19. java 21
 20. C#
 21. kotlin
@@ -39,7 +61,7 @@ If I can't get a language off the ground, or it seems like the language doesn't 
 - oolong
 - fortran 2018
 - actionscript
-- python
+- ~~python~~
 - scala
 
 ## outlawed
