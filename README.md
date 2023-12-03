@@ -59,6 +59,7 @@ If I can't get a language off the ground, or it seems like the language doesn't 
 - matlab
 - powershell
 - oolong
+- clojure
 - fortran 2018
 - actionscript
 - ~~python~~
