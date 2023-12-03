@@ -8,8 +8,8 @@ The current plan for using a different language each day.
 
 - tooling: How easy was it to install, how easy to get to hello world, how was there ide support, did the errors messages make sense
 - experience: How much experience did I have with this sort of language going in.
-- sugar: How much syntactical sugar was built into the language, how easy was it to pull outside modules, how big is the ecosystem
-- brevity: How terse is the language. Is it good for doing things quickly. Is it a good fit for scripting
+- sugar: How much syntactical sugar was built into the language? How easy was it to pull outside modules? How large is the ecosystem?
+- brevity: How terse is the language? Is it good for doing things quickly? Is it a good fit for scripting?
 
 1. erlang/OTP (26)
    - tooling (6/10)
@@ -25,6 +25,7 @@ The current plan for using a different language each day.
    - Like bash but none of the variable prefix rules make sense.
 3. scheme (racket-8.11.1)
    - tooling (4/10)
+     - Error messages didn't have worthwhile stack traces. They were truncated and just method names with line numbers.
    - experience (4/10)
    - sugar (3/10)
    - brevity (3/10)
@@ -72,3 +73,4 @@ These have proved trying in the past.
 - elixir
 - swift/objective-c
 - julia
+- scheme (too much build-your-own-helper mindset)
