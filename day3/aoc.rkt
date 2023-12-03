@@ -12,12 +12,12 @@
 )
 (set! lines (reverse lines))
 
-(displayln lines)
+;(displayln lines)
 
-(define (length lst)
-  (cond
-    [(empty? lst)  0]
-    [(cons? lst)   (+ 1 (length (rest lst)))]))
+;(define (length lst)
+;  (cond
+;    [(empty? lst)  0]
+;    [(cons? lst)   (+ 1 (length (rest lst)))]))
 
 (define (isBlank input)
     (eqv? #\. input)
@@ -28,10 +28,7 @@
 )
 
 (define width (length (car lines)))
-(displayln width)
-
 (define height (length lines))
-(displayln height)
 
 (define (get lst index)
   (cond
@@ -40,7 +37,10 @@
 
 (define (symb? input)
   ( not
-    (or (isBlank input )(char-numeric? input))
+    (or
+      (isBlank input )
+      (char-numeric? input)
+    )
   )
 )
 
@@ -60,13 +60,11 @@
 ;  (displayln (list "should count" row col len))
   (cond
     [(> 0 len) false]
-;    [(shouldCount row col (- len 1))]
     [(or (< (+ col len) 1) (> (+ col len) (- width 1))) (shouldCount row col (- len 1))]
     [(checkThreeLayers row (+ col len)) true]
     [else (shouldCount row col (- len 1))]
   )
 )
-;(displayln (shouldCount 0 -1 2))
 
 
 (define (consumeNumber line row col digits)
@@ -110,7 +108,7 @@
   )
 )
 
-(displayln partNumbers)
+;(displayln partNumbers)
 (displayln (list "partnumbers sum" (sum partNumbers)))
 
 (define (rc row col)
@@ -118,7 +116,7 @@
 )
 (define (parseNumber row col digits)
   (cond
-    [(or (= col (- width 1)) (not (char-numeric? (rc row (+ col 1))))) (displayln (list "parsed digits" digits)) (string->number (list->string (reverse (cons (rc row col) digits ))))]
+    [(or (= col (- width 1)) (not (char-numeric? (rc row (+ col 1))))) (string->number (list->string (reverse (cons (rc row col) digits ))))]
     [else  (parseNumber row (+ col 1) (cons (rc row col) digits))]
   )
 )
@@ -131,21 +129,20 @@
 )
 
 (define (extractNumber row col)
-  (displayln (list "extractNumber" row col ))
+;  (displayln (list "extractNumber" row col ))
   (findFront row col)
 )
 
 (define (checkUp row col)
-  (displayln (list "checkUp" row col ))
+;  (displayln (list "checkUp" row col ))
   (cond
 ;    [(= row 0) empty] ; not in the data
     [(not (char-numeric? (rc (- row 1) col))) empty]
-;    [(or (char-numeric? (rc (- row 1) (- col 1))) (char-numeric? (rc (- row 1) (+ col 1)))) empty]
     [else (extractNumber (- row 1) col)]
   )
 )
 (define (checkUpLeft row col)
-  (displayln (list "checkUpLeft" row col ))
+;  (displayln (list "checkUpLeft" row col ))
   (cond
     [(not (char-numeric? (rc (- row 1) (- col 1)))) empty]
     [(char-numeric? (rc (- row 1) col)) empty]
@@ -154,14 +151,14 @@
 )
 
 (define (checkLeft row col)
-  (displayln (list "checkLeft" row col ))
+;  (displayln (list "checkLeft" row col ))
   (cond
     [(not (char-numeric? (rc row (- col 1)))) empty]
     [else (extractNumber row (- col 1))]
   )
 )
 (define (checkDownLeft row col)
-  (displayln (list "checkDownLeft" row col ))
+;  (displayln (list "checkDownLeft" row col ))
   (cond
     [(not (char-numeric? (rc (+ row 1) (- col 1)))) empty]
     [(char-numeric? (rc (+ row 1) col)) empty]
@@ -170,15 +167,14 @@
 )
 
 (define (checkDown row col)
-  (displayln (list "checkDown" row col ))
+;  (displayln (list "checkDown" row col ))
   (cond
     [(not (char-numeric? (rc (+ row 1) col))) empty]
-;    [(or (char-numeric? (rc (+ row 1) (+ col 1))) (char-numeric? (rc (- row 1) (+ col 1)))) empty]
     [else (extractNumber (+ row 1) col)]
   )
 )
 (define (checkDownRight row col)
-  (displayln (list "checkDownRight" row col ))
+;  (displayln (list "checkDownRight" row col ))
   (cond
     [(not (char-numeric? (rc (+ row 1) (+ col 1)))) empty]
     [(char-numeric? (rc (+ row 1) col)) empty]
@@ -186,14 +182,14 @@
   )
 )
 (define (checkRight row col)
-  (displayln (list "checkRight" row col ))
+;  (displayln (list "checkRight" row col ))
   (cond
     [(char-numeric? (rc row (+ col 1))) (extractNumber row (+ col 1))]
     [else empty]
   )
 )
 (define (checkUpRight row col)
-  (displayln (list "checkUpRight" row col ))
+;  (displayln (list "checkUpRight" row col ))
   (cond
     [(not (char-numeric? (rc (- row 1) (+ col 1)))) empty]
     [(char-numeric? (rc (- row 1) col)) empty]
@@ -201,7 +197,7 @@
   )
 )
 (define (analyzeGear row col)
-  (displayln (list "analyzeGear" row col ))
+;  (displayln (list "analyzeGear" row col ))
   (list
     (checkUp row col)
     (checkUpLeft row col)
@@ -215,7 +211,7 @@
 )
 
 (define (findGearsInLine line row col)
-  (displayln (list "findGearsInLine" row col ))
+;  (displayln (list "findGearsInLine" row col ))
   (cond
     [(empty? line) empty]
     [(gear? (first line)) (cons (analyzeGear row col) (findGearsInLine (rest line) row (+ col 1)))]
@@ -224,7 +220,7 @@
 )
 
 (define (findGears remainingLines row)
-  (displayln (list "findGears" row))
+;  (displayln (list "findGears" row))
   (cond
     [(empty? remainingLines) empty]
     [else (append (findGearsInLine (first remainingLines) row 0) (findGears (rest remainingLines) (+ row 1)))]
@@ -232,44 +228,24 @@
 )
 
 (define gears (findGears lines 0))
-(set! gears
-  (map
-    (lambda (lst)
-      (filter
-        (lambda (innerLst)
-          (not
-            (empty? innerLst)
-          )
-        )
-        lst
-      )
-    )
-    gears
+(define (findNextNonEmpty lst)
+  (cond
+    [(empty? lst) 0]
+    [(empty? (first lst)) (findNextNonEmpty (rest lst))]
+    [else (first lst)]
   )
 )
-(displayln (list "all gears" gears ))
-(set! gears
-      (filter
-        (lambda (lst)
-          (=
-            (length lst)
-            2
-          )
-    )
-    gears
+(define (calculateRatio lst)
+  (cond
+    [(empty? lst) 0]
+    [(empty? (first lst)) (calculateRatio (rest lst))]
+    [else (* (first lst) (findNextNonEmpty (rest lst)))]
   )
 )
-(displayln (list "two part gears" gears ))
-(define ratios
-  (map
-    (lambda (lst)
-      (*
-        (first lst)
-        (second lst)
-      )
-    )
-    gears
+(define (cleanupGears lst)
+  (cond
+    [(empty? lst) 0]
+    [else (+ (calculateRatio (first lst)) (cleanupGears (rest lst)))]
   )
 )
-(displayln (list "ratios" ratios ))
-(displayln (list "sum" (sum ratios) ))
+(displayln (list "ratio sum " (cleanupGears gears)))
