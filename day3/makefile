@@ -1,2 +1,2 @@
 run:
-	scheme --quiet < aoc.scheme
+	racket aoc.rkt

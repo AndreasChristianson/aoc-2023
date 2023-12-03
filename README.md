@@ -6,7 +6,7 @@ The current plan for using a different language each day.
 
 1. erlang/OTP (26)
 2. perl (v5.30.3)
-3. scheme ([mit](https://www.gnu.org/software/mit-scheme/) 12.1)
+3. scheme (racket-8.11.1)
 4. bash/sh + coreutils
 5. F#
 6. COBOL 2023
