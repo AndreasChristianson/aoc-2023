@@ -248,4 +248,4 @@
     [else (+ (calculateRatio (first lst)) (cleanupGears (rest lst)))]
   )
 )
-(displayln (list "ratio sum " (cleanupGears gears)))
+(displayln (list "ratio sum" (cleanupGears gears)))

@@ -23,6 +23,7 @@ The current plan for using a different language each day.
    - sugar (7/10)
    - brevity (9/10)
    - Like bash but none of the variable prefix rules make sense.
+   - Runtime feels "fast." Might just have been this problem.
 3. scheme (racket-8.11.1)
    - tooling (4/10)
      - Error messages didn't have worthwhile stack traces. They were truncated and just method names with line numbers.
