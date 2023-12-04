@@ -4,10 +4,10 @@ readarray -t lines < input.txt
 
 numPoints=0
 numCards=0
-declare -A stored
+declare -A cardCounts
 
 for i in "${!lines[@]}"; do
-  stored[$i]=1
+  cardCounts[$i]=1
 done
 
 for i in "${!lines[@]}"; do
@@ -25,11 +25,11 @@ for i in "${!lines[@]}"; do
   if [ $hits -gt 0 ]; then
     for j in $(seq 1 $hits);  do
       lineToAdd=$(( i + j ))
-      stored[$lineToAdd]=$(( ${stored[$lineToAdd]} + ${stored[$i]} ))
+      cardCounts[$lineToAdd]=$(( ${cardCounts[$lineToAdd]} + ${cardCounts[$i]} ))
     done
   fi
-  numCards=$(( stored[$i] + numCards ))
+  numCards=$(( cardCounts[$i] + numCards ))
   points=$(echo "2^($hits-1)" | bc)
   numPoints=$(( numPoints + points ))
-  echo "scratchcard $i: $hits hits worth $points points, ${stored[$i]} copies. Scratchers so far: $numCards. Points so far $numPoints"
+  echo "scratchcard $i: $hits hits worth $points points, ${cardCounts[$i]} copies. Scratchers so far: $numCards. Points so far $numPoints"
 done
