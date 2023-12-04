@@ -11,8 +11,8 @@ for i in "${!lines[@]}"; do
 done
 
 for i in "${!lines[@]}"; do
-  IFS=':' read -ra dataSections <<< "${lines[$i]}"
-  IFS='|' read -ra dataSection <<< "${dataSections[1]}"
+  IFS=':' read -ra sections <<< "${lines[$i]}"
+  IFS='|' read -ra dataSection <<< "${sections[1]}"
   IFS=' ' read -ra targetNumbers <<< "${dataSection[0]}"
   IFS=' ' read -ra gotNumbers <<< "${dataSection[1]}"
   hits=0
@@ -23,7 +23,7 @@ for i in "${!lines[@]}"; do
     fi
   done
   if [ $hits -gt 0 ]; then
-    for j in $(seq 1 $hits);  do
+    for j in $(seq 1 $hits); do
       lineToAdd=$(( i + j ))
       cardCounts[$lineToAdd]=$(( ${cardCounts[$lineToAdd]} + ${cardCounts[$i]} ))
     done
@@ -31,5 +31,5 @@ for i in "${!lines[@]}"; do
   numCards=$(( cardCounts[$i] + numCards ))
   points=$(echo "2^($hits-1)" | bc)
   numPoints=$(( numPoints + points ))
-  echo "scratchcard $i: $hits hits worth $points points, ${cardCounts[$i]} copies. Scratchers so far: $numCards. Points so far $numPoints"
+  echo "card $i: $hits hits worth $points points (had ${cardCounts[$i]} copies). Scratchers so far $numCards. Points so far $numPoints."
 done
