@@ -32,11 +32,11 @@ The current plan for using a different language each day.
    - brevity (3/10)
    - build your own mapping functions seems to be "the lisp way."
 4. bash (5.2.15)
-   - tooling (?/10)
-   - experience (?/10)
-   - sugar (?/10)
-   - brevity (?/10)
-   - 
+   - tooling (6/10)
+   - experience (7/10)
+   - sugar (5/10)
+   - brevity (9/10)
+   - treating everything as a string made tonight easy. Having a wide range of SO questions also helped a lot.
 5. F#
 6. COBOL 2023
 7. ruby
