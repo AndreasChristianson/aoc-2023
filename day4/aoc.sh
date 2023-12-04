@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-#set -x
-
 readarray -t lines < input.txt
 
-sum=0
+numPoints=0
+numCards=0
 declare -A stored
 
 for i in "${!lines[@]}"; do
@@ -29,8 +28,8 @@ for i in "${!lines[@]}"; do
       stored[$lineToAdd]=$(( ${stored[$lineToAdd]} + ${stored[$i]} ))
     done
   fi
-  sum=$(( stored[$i] + sum ))
-  echo "scratchcard $i: $hits hits, ${stored[$i]} copies. Scratchers so far: $sum."
+  numCards=$(( stored[$i] + numCards ))
+  points=$(echo "2^($hits-1)" | bc)
+  numPoints=$(( numPoints + points ))
+  echo "scratchcard $i: $hits hits worth $points points, ${stored[$i]} copies. Scratchers so far: $numCards. Points so far $numPoints"
 done
-
-echo "tada: $sum!"
