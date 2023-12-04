@@ -1,29 +1,38 @@
 #!/usr/bin/env bash
 
-set -x
+#set -x
 
-echo "hello world"
+readarray -t lines < input.txt
 
-say_hello () {
-  echo "hello $0"
-}
 
-fib () {
-  if [ $1 -le 0 ];
-  then
-    echo 1
-  elif [ $1 -eq 1 ];
-  then
-    echo 1
-  else
-    echo $(($(fib $(($1-2))) + $(fib $(($1 - 1))) ))
+sum=0
+declare -A stored
+for i in "${!lines[@]}"; do
+  stored[$i]=1
+done
+
+for i in "${!lines[@]}"; do
+  IFS=':' read -ra dataSections <<< "${lines[$i]}"
+  IFS='|' read -ra dataSection <<< "${dataSections[1]}"
+  IFS=' ' read -ra targetNumbers <<< "${dataSection[0]}"
+  IFS=' ' read -ra gotNumbers <<< "${dataSection[1]}"
+  hits=0
+
+#  echo "${targetNumbers[@]}"
+#  echo "${gotNumbers[@]}"
+  for number in "${gotNumbers[@]}"; do
+    if [[ " ${targetNumbers[*]} " =~ " ${number} " ]]; then
+        hits=$((hits+1))
+    fi
+  done
+  if [ $hits -gt 0 ]; then
+      for j in $(seq 1 $hits);  do
+        lineToAdd=$((i+j))
+          stored[$lineToAdd]=$(( ${stored[$lineToAdd]} + ${stored[$i]}))
+      done
   fi
-}
+#  echo "${stored[@]}"
+  sum=$((stored[$i]+sum))
+done
 
-readarray -t lines < example.txt
-
-echo "${lines[@]}"
-
-say_hello "$@"
-
-fib 10
+echo "$sum"
