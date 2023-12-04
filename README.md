@@ -24,27 +24,32 @@ The current plan for using a different language each day.
    - brevity (9/10)
    - Like bash but none of the variable prefix rules make sense.
    - Runtime feels "fast." Might just have been this problem.
-3. scheme (racket-8.11.1)
+3. scheme/lisp (racket-8.11.1)
    - tooling (4/10)
      - Error messages didn't have worthwhile stack traces. They were truncated and just method names with line numbers.
    - experience (4/10)
    - sugar (3/10)
    - brevity (3/10)
    - build your own mapping functions seems to be "the lisp way."
-4. bash
+4. bash (5.2.15)
+   - tooling (?/10)
+   - experience (?/10)
+   - sugar (?/10)
+   - brevity (?/10)
+   - 
 5. F#
 6. COBOL 2023
-7. nim
+7. ruby
 8. groovy
 9. rust
-10. java 1.2 ( first java with collection classes )
-11. ruby
+10. lua
+11. nim
 12. typescript
-13. zig
+13. java 1.2 ( first java with collection classes )
 14. visual basic ( .NET core )
 15. c++
 16. c
-17. lua
+17. zig
 18. python
 19. java 21
 20. C#
