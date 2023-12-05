@@ -38,6 +38,14 @@ The current plan for using a different language each day.
    - brevity (9/10)
    - treating everything as a string made tonight easy. Having a wide range of SO questions also helped a lot.
 5. F#
+   - tooling (5/10)
+     - Had to install Rider. :shrug:
+   - experience (2/10)
+   - sugar (6/10)
+     - It has all the dotnet sugar, just in functional form
+   - brevity (3/10)
+   - Just parsing the text was pretty painful. My mind is not smart enough for languages like this.
+   - Feels like scala.
 6. COBOL 2023
 7. ruby
 8. groovy
