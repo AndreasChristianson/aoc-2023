@@ -76,8 +76,7 @@ let maps =
     mapNames
     |> List.map (fun name -> $"%s{name} map:")
     |> List.map (fun text -> collect (text, Seq.toList lines))
-
-// printfn $"mappings: %A{maps}"
+printfn $"mappings: %A{maps}"
 
 let applyMappings =
     fun (value: int64) (mappings: Mapping list) ->
@@ -90,7 +89,6 @@ let applyMappings =
 
 let locations =
     seeds |> List.map (fun seed -> (seed, List.fold applyMappings seed maps))
-
 printfn $"locations: %A{locations}"
 
 let minLocation =
@@ -99,12 +97,10 @@ let minLocation =
         match t with
         | _, r -> r)
     |> List.reduce (fun l r -> Math.Min(l, r))
-
 printfn $"minLocation: %d{minLocation}"
 
 let seedRanges =
     seeds |> List.chunkBySize 2 |> List.map (fun t -> Range(t[0], t[0] + t[1] - 1L))
-
 printfn $"seedRanges: %A{seedRanges}"
 
 let rec applyRangeMappings (ranges: Range list) (mappings: Mapping list) : Range list =
@@ -125,5 +121,4 @@ let minRangeLocation =
     locationsRanges
     |> List.map (fun r -> r.low)
     |> List.reduce (fun l r -> Math.Min(l, r))
-
 printfn $"minRangeLocation: %d{minRangeLocation}"
