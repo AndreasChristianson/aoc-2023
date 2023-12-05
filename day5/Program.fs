@@ -1,8 +1,6 @@
 ﻿open System
 
-
 let lines = System.IO.File.ReadLines("input.txt")
-
 
 let rec findLine (list: seq<string>, phrase: string) =
     match Seq.toList list with
@@ -93,7 +91,7 @@ let applyMappings =
 let locations =
     seeds |> List.map (fun seed -> (seed, List.fold applyMappings seed maps))
 
-printfn $"location mappings: %A{locations}"
+printfn $"locations: %A{locations}"
 
 let minLocation =
     locations
@@ -102,16 +100,12 @@ let minLocation =
         | _, r -> r)
     |> List.reduce (fun l r -> Math.Min(l, r))
 
-printfn $"min location: %d{minLocation}"
-
-
+printfn $"minLocation: %d{minLocation}"
 
 let seedRanges =
     seeds |> List.chunkBySize 2 |> List.map (fun t -> Range(t[0], t[0] + t[1] - 1L))
 
 printfn $"seedRanges: %A{seedRanges}"
-
-
 
 let rec applyRangeMappings (ranges: Range list) (mappings: Mapping list) : Range list =
     match mappings with
@@ -121,13 +115,6 @@ let rec applyRangeMappings (ranges: Range list) (mappings: Mapping list) : Range
                           match head.mapRange range with
                           | Some(mappedRange), unmappedRanges -> mappedRange::applyRangeMappings unmappedRanges tail
                           | None, unmappedRanges -> applyRangeMappings unmappedRanges tail)
-
-
-// ranges
-//                       |> List.collect (fun range ->
-//                          match head.mapRange range with
-//                          | Some(mappedRange), unmappedRanges -> mappedRange :: unmappedRanges |> List.map (fun r -> applyRangeMappings (r, tail))
-//                          | None, _ -> applyRangeMappings (range, tail)
 
 let locationsRanges =
     seedRanges
