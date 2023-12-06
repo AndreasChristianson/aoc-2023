@@ -37,7 +37,7 @@ The current plan for using a different language each day.
    - sugar (5/10)
    - brevity (9/10)
    - treating everything as a string made tonight easy. Having a wide range of SO questions also helped a lot.
-5. F#
+5. F# (dotnet 8.0.100)
    - tooling (5/10)
      - Had to install Rider. :shrug:
    - experience (2/10)
@@ -46,10 +46,14 @@ The current plan for using a different language each day.
    - brevity (3/10)
    - Just parsing the text was pretty painful. My mind is not smart enough for languages like this.
    - Feels like scala.
-6. COBOL 2023
-7. ruby
+6. PowerShell 7.4.0
+   - tooling (?/10)
+   - experience (2/10)
+   - sugar (?/10)
+   - brevity (?/10)
+7. rust
 8. groovy
-9. rust
+9. ruby
 10. lua
 11. nim
 12. typescript
@@ -72,7 +76,7 @@ The current plan for using a different language each day.
 If I can't get a language off the ground, or it seems like the language doesn't fit the problem, here are some backups.
 
 - matlab
-- powershell
+- ~~powershell~~
 - oolong
 - clojure
 - fortran 2018
@@ -87,4 +91,7 @@ These have proved trying in the past.
 - elixir
 - swift/objective-c
 - julia
-- scheme (too much build-your-own-helper mindset)
+- scheme 
+  - too much build-your-own-helper mindset
+- COBOL
+  - After spending an hour, I was still researching out how to read records from a text file.
