@@ -47,10 +47,13 @@ The current plan for using a different language each day.
    - Just parsing the text was pretty painful. My mind is not smart enough for languages like this.
    - Feels like scala.
 6. PowerShell 7.4.0
-   - tooling (?/10)
+   - tooling (4/10)
+     - IDE support sucked in intellij. Had to move to vs-code.
    - experience (2/10)
-   - sugar (?/10)
-   - brevity (?/10)
+   - sugar (8/10)
+     - Way more than I expected. Has all the dotnet sugar.
+   - brevity (8/10)
+   - Seems like a good bash replacement for most use cases; for example, if you're on windows.
 7. rust
 8. groovy
 9. ruby
