@@ -55,6 +55,12 @@ The current plan for using a different language each day.
    - brevity (8/10)
    - Seems like a good bash replacement for most use cases; for example, if you're on windows.
 7. rust
+   - tooling (7/10)
+      - IDE support wasn't 100% in intellij. Wasn't really 80%.. But the error messaging on the build was well done.
+   - experience (3/10)
+   - sugar (6/10)
+   - brevity (4/10)
+   - Thinking about lifetimes shouldn't be my job if I don't want to.
 8. groovy
 9. ruby
 10. lua
