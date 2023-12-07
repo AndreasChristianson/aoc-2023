@@ -31,5 +31,5 @@ for i in "${!lines[@]}"; do
   numCards=$(( cardCounts[$i] + numCards ))
   points=$(echo "2^($hits-1)" | bc)
   numPoints=$(( numPoints + points ))
-  echo "card $i: $hits hits worth $points points (had ${cardCounts[$i]} copies). Scratchers so far $numCards. Points so far $numPoints."
+  echo "card $i: $hits hits worth $points points (had ${cardCounts[$i]} copies). Tickets so far $numCards. Points so far $numPoints."
 done
