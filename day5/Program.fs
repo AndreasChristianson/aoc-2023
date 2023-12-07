@@ -9,9 +9,8 @@ let rec findLine (list: seq<string>, phrase: string) =
     | _ :: tail -> findLine (tail, phrase)
 
 let seedsText = Array.get (findLine(lines, "seeds").Split(":")) 1
-let seeds = Seq.toList (seedsText.Trim().Split(" ")) |> List.map Int64.Parse
 
-printfn "seeds: %A" seeds
+let seeds = Seq.toList (seedsText.Trim().Split(" ")) |> List.map Int64.Parse
 
 let mapNames =
     [ "seed-to-soil"
@@ -76,7 +75,6 @@ let maps =
     mapNames
     |> List.map (fun name -> $"%s{name} map:")
     |> List.map (fun text -> collect (text, Seq.toList lines))
-printfn $"mappings: %A{maps}"
 
 let applyMappings =
     fun (value: int64) (mappings: Mapping list) ->
@@ -89,7 +87,6 @@ let applyMappings =
 
 let locations =
     seeds |> List.map (fun seed -> (seed, List.fold applyMappings seed maps))
-printfn $"locations: %A{locations}"
 
 let minLocation =
     locations
@@ -101,7 +98,6 @@ printfn $"minLocation: %d{minLocation}"
 
 let seedRanges =
     seeds |> List.chunkBySize 2 |> List.map (fun t -> Range(t[0], t[0] + t[1] - 1L))
-printfn $"seedRanges: %A{seedRanges}"
 
 let rec applyRangeMappings (ranges: Range list) (mappings: Mapping list) : Range list =
     match mappings with
@@ -115,7 +111,6 @@ let rec applyRangeMappings (ranges: Range list) (mappings: Mapping list) : Range
 let locationsRanges =
     seedRanges
     |> List.collect (fun seedRange -> List.fold applyRangeMappings [ seedRange ] maps)
-printfn $"locationsRanges: %A{locationsRanges}"
 
 let minRangeLocation =
     locationsRanges
