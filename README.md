@@ -11,33 +11,33 @@ The current plan for using a different language each day.
 - sugar: How much syntactical sugar was built into the language? How easy was it to pull outside modules? How large is the ecosystem?
 - brevity: How terse is the language? Is it good for doing things quickly? Is it a good fit for scripting?
 
-1. erlang/OTP (26)
+1. erlang/OTP (`Erlang/OTP 26 [erts-14.0.2] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [jit:ns] [dtrace]`)
    - tooling (6/10)
    - experience (3/10)
    - sugar (5/10)
    - brevity (4/10)
    - list comprehensions area pretty readable in erlang.
-2. perl (v5.30.3)
+2. perl (`perl 5, version 30, subversion 3 (v5.30.3) built for darwin-thread-multi-2level`)
    - tooling (7/10)
    - experience (2/10)
    - sugar (7/10)
    - brevity (9/10)
    - Like bash but none of the variable prefix rules make sense.
    - Runtime feels "fast." Might just have been this problem.
-3. scheme/lisp (racket-8.11.1)
+3. scheme/lisp (`Racket v8.11.1 [cs]`)
    - tooling (4/10)
      - Error messages didn't have worthwhile stack traces. They were truncated and just method names with line numbers.
    - experience (4/10)
    - sugar (3/10)
    - brevity (3/10)
    - build your own mapping functions seems to be "the lisp way."
-4. bash (5.2.15)
+4. bash (`GNU bash, version 5.2.15(1)-release (x86_64-apple-darwin21.6.0)`)
    - tooling (6/10)
    - experience (7/10)
    - sugar (5/10)
    - brevity (9/10)
    - treating everything as a string made tonight easy. Having a wide range of SO questions also helped a lot.
-5. F# (dotnet 8.0.100)
+5. F# (`dotnet 8.0.100`)
    - tooling (5/10)
      - Had to install Rider. :shrug:
    - experience (2/10)
@@ -46,7 +46,7 @@ The current plan for using a different language each day.
    - brevity (3/10)
    - Just parsing the text was pretty painful. My mind is not smart enough for languages like this.
    - Feels like scala.
-6. PowerShell 7.4.0
+6. PowerShell (`7.4.0`)
    - tooling (4/10)
      - IDE support sucked in intellij. Had to move to vs-code.
    - experience (2/10)
@@ -54,14 +54,21 @@ The current plan for using a different language each day.
      - Way more than I expected. Has all the dotnet sugar.
    - brevity (8/10)
    - Seems like a good bash replacement for most use cases; for example, if you're on windows.
-7. rust (rustc 1.74.0 (79e9716c9 2023-11-13))
+7. rust (`rustc 1.74.0 (79e9716c9 2023-11-13)`)
    - tooling (7/10)
       - IDE support wasn't 100% in intellij. Wasn't really 80%.. But the error messaging on the build was well done.
    - experience (3/10)
    - sugar (6/10)
    - brevity (4/10)
    - Thinking about lifetimes shouldn't be my job if I don't want to.
-8. groovy (Groovy Version: 4.0.16 JVM: 21.0.1 Vendor: Homebrew OS: Mac OS X)
+8. groovy (`Groovy Version: 4.0.16 JVM: 21.0.1 Vendor: Homebrew OS: Mac OS X`)
+   - tooling (4/10)
+      - IDE support sucked in intellij. Type system didn't work.
+   - experience (3/10)
+   - sugar (6/10)
+      - Without ide support the sugar tasted off...
+   - brevity (6/10)
+   - I think if I got my dev env set up correctly this would have rocked.
 9. ruby
 10. lua
 11. nim
