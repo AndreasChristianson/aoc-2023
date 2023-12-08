@@ -26,6 +26,7 @@ do {
         pos = map[pos][1]
     }
 } while (pos != 'ZZZ')
+println "end: " + pos
 println "single path: " + count
 def positions = map.keySet().findAll { it[2] == 'A' }.collect()
 
@@ -49,4 +50,5 @@ for (int i = 0; i < positions.size(); i++) {
     } while (positions[i][2] != 'Z')
     cycles[i]=count
 }
+println "end: " + positions
 println "take this to wolfram alpha: LCM" + cycles
