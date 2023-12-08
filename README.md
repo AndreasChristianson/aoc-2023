@@ -54,14 +54,14 @@ The current plan for using a different language each day.
      - Way more than I expected. Has all the dotnet sugar.
    - brevity (8/10)
    - Seems like a good bash replacement for most use cases; for example, if you're on windows.
-7. rust
+7. rust (rustc 1.74.0 (79e9716c9 2023-11-13))
    - tooling (7/10)
       - IDE support wasn't 100% in intellij. Wasn't really 80%.. But the error messaging on the build was well done.
    - experience (3/10)
    - sugar (6/10)
    - brevity (4/10)
    - Thinking about lifetimes shouldn't be my job if I don't want to.
-8. groovy
+8. groovy (Groovy Version: 4.0.16 JVM: 21.0.1 Vendor: Homebrew OS: Mac OS X)
 9. ruby
 10. lua
 11. nim
