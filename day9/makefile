@@ -1,0 +1,2 @@
+run:
+	rake run

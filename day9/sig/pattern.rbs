@@ -1,0 +1,14 @@
+class Pattern
+  attr_accessor ints: Array[int]
+
+  attr_accessor sub_pattern: Pattern?
+
+  def before: -> int
+
+  def derive: -> Pattern?
+
+  def next: -> int
+
+  def is_done: -> bool
+
+end
