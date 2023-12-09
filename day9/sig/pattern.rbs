@@ -3,12 +3,8 @@ class Pattern
 
   attr_accessor sub_pattern: Pattern?
 
-  def before: -> int
-
-  def derive: -> Pattern?
+  def previous: -> int
 
   def next: -> int
-
-  def is_done: -> bool
 
 end
