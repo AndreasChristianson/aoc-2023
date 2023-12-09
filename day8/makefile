@@ -1,0 +1,2 @@
+run:
+	groovy aoc.groovy
