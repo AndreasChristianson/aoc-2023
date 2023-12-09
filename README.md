@@ -70,6 +70,14 @@ The current plan for using a different language each day.
    - brevity (6/10)
    - I think if I got my dev env set up correctly this would have rocked.
 9. ruby
+   - tooling (6/10)
+      - Took a long time to get the module and interperter setup just right in the IDE
+   - experience (2/10)
+     - I've installed gems before...
+   - sugar (9/10)
+   - brevity (3/10)
+     - So much boilerplate...
+   - I love how classes and predicates feel. Lots of cool builtin functions too.
 10. lua
 11. nim
 12. typescript
