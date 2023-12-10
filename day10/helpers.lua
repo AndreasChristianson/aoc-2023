@@ -20,13 +20,13 @@ function traversePipes(startingPipe)
     local toDoList = { startingPipe }
     local distance = 0
     while #toDoList > 0 do
-        print("Distance: " .. distance .. " Todolist length: " .. #toDoList)
+        --print("Distance: " .. distance .. " Todolist length: " .. #toDoList)
         local newTodoList = {}
-        for i, pipe in ipairs(toDoList) do
-            for j, to in ipairs(pipe.connectedDirs) do
+        for _, pipe in ipairs(toDoList) do
+            for _, to in ipairs(pipe.connectedDirs) do
                 local potential = pipe.neighbors[to]
                 if (potential and potential.distance > 1 + distance) then
-                    print("Found " .. potential:toString())
+                    --print("Found " .. potential:toString())
                     table.insert(newTodoList, potential)
                     table.insert(touched, potential)
                     potential.distance = distance + 1
@@ -63,9 +63,9 @@ function labelOutside(startingPipe, startingCorner)
     local cornerCount = 0
     local toDoList = { { startingPipe, startingCorner } }
     while #toDoList > 0 do
-        print("Todolist length: " .. #toDoList)
+        --print("Todolist length: " .. #toDoList)
         local newTodoList = {}
-        for i, tuple in ipairs(toDoList) do
+        for _, tuple in ipairs(toDoList) do
             local pipe = tuple[1]
             local corner = tuple[2]
             if (not (pipe.seen[corner])) then
@@ -73,15 +73,15 @@ function labelOutside(startingPipe, startingCorner)
                 cornerCount = cornerCount + 1
                 if (not pipe.inLoop) then
                     pipe.outside = true
-                    for j, dir in ipairs(otherCorners(corner)) do
+                    for _, dir in ipairs(otherCorners(corner)) do
                         table.insert(newTodoList, { pipe, dir })
                     end
                 else
-                    for j, dir in ipairs(pipe.internalNavigation[corner]) do
+                    for _, dir in ipairs(pipe.internalNavigation[corner]) do
                         table.insert(newTodoList, { pipe, dir })
                     end
                 end
-                for j, cardAndCorner in ipairs(cornerComponents(corner)) do
+                for _, cardAndCorner in ipairs(cornerComponents(corner)) do
                     local card = cardAndCorner[1]
                     local newCorner = cardAndCorner[2]
                     local newPipe = pipe.neighbors[card]
