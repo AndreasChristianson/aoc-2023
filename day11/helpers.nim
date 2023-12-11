@@ -1,11 +1,11 @@
-proc expand(amount:int, oldGalaxies:seq[Galaxy], height:int,width:int): seq[Galaxy]=
+proc expand(amount: int, oldGalaxies: seq[Galaxy], height: int, width: int): seq[Galaxy] =
   var
     newGalaxies: seq[Galaxy]
-    rowsToExpand:seq[int]
-    colsToExpand:seq[int]
+    rowsToExpand: seq[int]
+    colsToExpand: seq[int]
   let
-    down=Point(row:amount, col:0)
-    right=Point(row:0, col:amount)
+    down = Point(row: amount, col: 0)
+    right = Point(row: 0, col: amount)
 
   for row in 0 ..< height:
     if oldGalaxies.allIt(it.location.row != row):
@@ -17,12 +17,12 @@ proc expand(amount:int, oldGalaxies:seq[Galaxy], height:int,width:int): seq[Gala
       colsToExpand.add(col)
 
   for oldGalaxy in oldGalaxies:
-    var newGalaxy=oldGalaxy
+    var newGalaxy = oldGalaxy
     for row in rowsToExpand:
-      if oldGalaxy.location.row>row:
+      if oldGalaxy.location.row > row:
         newGalaxy = newGalaxy.shift(down)
     for col in colsToExpand:
-      if oldGalaxy.location.col>col:
+      if oldGalaxy.location.col > col:
         newGalaxy = newGalaxy.shift(right)
     newGalaxies.add(newGalaxy)
 
