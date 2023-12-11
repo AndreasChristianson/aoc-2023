@@ -69,7 +69,7 @@ The current plan for using a different language each day.
       - Without ide support the sugar tasted off...
    - brevity (6/10)
    - I think if I got my dev env set up correctly this would have rocked.
-9. ruby
+9. ruby (`ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-darwin21]`)
    - tooling (6/10)
       - Took a long time to get the module and interperter setup just right in the IDE
    - experience (2/10)
@@ -79,10 +79,12 @@ The current plan for using a different language each day.
      - So much boilerplate...
    - I love how classes and predicates feel. Lots of cool builtin functions too.
 10. lua (`Lua 5.4.6`)
-    - tooling: How easy was it to install, how easy to get to hello world, how was there ide support, did the errors messages make sense
-    - experience: How much experience did I have with this sort of language going in.
-    - sugar: How much syntactical sugar was built into the language? How easy was it to pull outside modules? How large is the ecosystem?
-    - brevity: How terse is the language? Is it good for doing things quickly? Is it a good fit for scripting?
+    - tooling (7/10)
+    - experience (3/10)
+    - sugar (4.5/10)
+      - Pulling modules was easy with luarocks. The build-it-yourself mindset of the community sorta sucks.
+    - brevity: (3/10)
+    - This was a hard night. The final bfs implementation was pretty sketchy.
 11. nim
 12. typescript
 13. java 1.2 ( first java with collection classes )
