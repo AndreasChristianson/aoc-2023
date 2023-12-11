@@ -85,7 +85,21 @@ The current plan for using a different language each day.
       - Pulling modules was easy with luarocks. The build-it-yourself mindset of the community sorta sucks.
     - brevity: (3/10)
     - This was a hard night. The final bfs implementation was pretty sketchy.
-11. nim
+11. nim (`Nim Compiler Version 2.0.0`)
+    - tooling (5/10)
+    - experience (1/10)
+    - sugar (5/10)
+        - lots of std modules to pull.
+    - brevity: (5/10)
+    - the compiler errors I got were hard to make sense of
+      ```text
+        /Users/sullage/sandbox/aoc-2023-generic/day11/aoc.nim(67, 1) Error: type mismatch
+        Expression: echo galaxies
+        [1] galaxies: seq[Galaxy]
+    
+        Expected one of (first mismatch at [position]):
+        [1] proc echo(x: varargs[typed, `$`])
+      ```
 12. typescript
 13. java 1.2 ( first java with collection classes )
 14. visual basic ( .NET core )
