@@ -17,7 +17,7 @@ var
   width: int
 
 for row, line in allLines:
-  width=toSeq(line.items).len
+  width = toSeq(line.items).len
   for col, char in toSeq(line.items):
     if char == '#':
       galaxies.add(Galaxy(location: Point(col: col, row: row)))
@@ -28,5 +28,5 @@ proc addDistances(galaxiesToAdd: seq[Galaxy]): int =
     sum += seq[0].distance(seq[1])
   return sum
 
-echo "+1: ", addDistances(expand(1, galaxies, height, width))
+echo "      +1: ", addDistances(expand(1, galaxies, height, width))
 echo "+1000000: ", addDistances(expand(999999, galaxies, height, width))
