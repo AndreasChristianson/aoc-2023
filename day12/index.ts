@@ -47,14 +47,18 @@ class HotSpringRow {
             case Spring.broken:
                 return this.collectBroken(springPos, checkSumPos)
             case Spring.unknown:
-                return this.walk(springPos + 1, checkSumPos) + this.collectBroken(springPos, checkSumPos, 0)
+                return this.walk(springPos + 1, checkSumPos)
+                    + this.collectBroken(springPos, checkSumPos, 0)
         }
     }
 
     @Memoize((...args) => args.join(";"))
     private collectBroken(springPos: number, checkSumPos: number, brokenCount = 0): number {
         if (springPos === this.springs.length) {
-            if (this.checkSum[checkSumPos] == brokenCount && checkSumPos === this.checkSum.length - 1) {
+            if (
+                this.checkSum[checkSumPos] == brokenCount
+                && checkSumPos === this.checkSum.length - 1
+            ) {
                 return 1
             }
             return 0

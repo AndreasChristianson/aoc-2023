@@ -101,6 +101,12 @@ The current plan for using a different language each day.
         [1] proc echo(x: varargs[typed, `$`])
       ```
 12. typescript
+    - tooling (6/10)
+    - experience (7/10)
+    - sugar(8/10)
+      - very large (though perhaps not robust) echosystem
+    - brevity (5/10)
+    - I know ts well. I prefer js. IMO, the strength of js and its kin is how few rules it has. Adding type safety doesn't make js better, imo.
 13. java 1.2 ( first java with collection classes )
 14. visual basic ( .NET core )
 15. c++
