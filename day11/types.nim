@@ -14,4 +14,4 @@ type Galaxy = object
 proc distance(self: Galaxy, other: Galaxy): int =
   return self.location.distance(other.location)
 proc shift(self: Galaxy, delta: Point): Galaxy =
-  Galaxy(location:self.location.add(delta))
+  Galaxy(location: self.location.add(delta))
