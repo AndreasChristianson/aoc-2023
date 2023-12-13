@@ -100,14 +100,20 @@ The current plan for using a different language each day.
         Expected one of (first mismatch at [position]):
         [1] proc echo(x: varargs[typed, `$`])
       ```
-12. typescript
+12. typescript (`^5.3.3`)
     - tooling (6/10)
     - experience (7/10)
     - sugar(8/10)
-      - very large (though perhaps not robust) echosystem
+      - very large (though perhaps not robust) ecosystem
     - brevity (5/10)
     - I know ts well. I prefer js. IMO, the strength of js and its kin is how few rules it has. Adding type safety doesn't make js better, imo.
-13. java 1.2 ( first java with collection classes )
+13. java 1.8
+    - tooling (9/10)
+    - experience (9/10)
+    - sugar(8/10)
+    - brevity (3/10)
+      - Like writing a book. But I like this book.
+    - I wanted to use java 1.2 and compare it to java 21 later, but I found 1.2 wasn't supported by maven and I didn't want to keep a makefile up to date.
 14. visual basic ( .NET core )
 15. c++
 16. c
