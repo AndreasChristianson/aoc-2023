@@ -114,7 +114,14 @@ The current plan for using a different language each day.
     - brevity (3/10)
       - Like writing a book. But I like this book.
     - I wanted to use java 1.2 and compare it to java 21 later, but I found 1.2 wasn't supported by maven and I didn't want to keep a makefile up to date.
-14. visual basic ( .NET core )
+14. visual basic (`8.0.100`)
+    - tooling (7/10)
+      - Had to switch to rider
+    - experience (5/10)
+    - sugar(7/10)
+    - brevity (2/10)
+        - I don't like this book, though.
+    - I just used one big file. Need to clean that up.
 15. c++
 16. c
 17. zig
