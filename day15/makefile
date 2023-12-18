@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -std=c++11
 
-all: build/output
+run: build/output
 	./build/output input.txt
 
 build/output: build/aoc.o build/split.o build/hash.o
@@ -18,6 +18,8 @@ build/hash.o: lib/hash.cpp
 
 build/lens.o: class/lens.cpp
 	$(CC) $(CFLAGS) -c class/lens.cpp -o build/lens.o
+
+all: build/output
 
 clean:
 	rm -f output
