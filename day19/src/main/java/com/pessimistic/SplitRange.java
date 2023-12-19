@@ -19,11 +19,11 @@ public class SplitRange {
 
     public boolean hasPass() {
 
-        return pass !=null;
+        return pass != null;
     }
 
     public boolean hasFail() {
-        return fail!=null;
+        return fail != null;
     }
 
     public Range getPass() {

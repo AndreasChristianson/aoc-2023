@@ -3,12 +3,49 @@ package com.pessimistic;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Aoc {
+
+    private final Map<String, Workflow> pile;
+    private final List<Part> toProcess;
+    private final List<Part> rejected = new ArrayList<>();
+    private final List<Part> accepted = new ArrayList<>();
+    private final List<PartRange> rejectedRange = new ArrayList<>();
+    private final List<PartRange> acceptedRange = new ArrayList<>();
+    public Aoc(String file) {
+        List<String> lines = readFile(file);
+        this.pile = parseWorkflows(lines);
+        this.toProcess = parseParts(lines);
+    }
+
+    public static void main(String[] args) throws IOException {
+        String file = args[0];
+        Aoc aoc = new Aoc(file);
+        aoc.process();
+        System.out.format("total accepted attributes: %d\n", aoc.acceptedSum());
+        aoc.processRange();
+        System.out.format("total accepted permutations: %d\n", aoc.acceptedRangePermutationsSum());
+    }
+
+    private static List<String> readFile(String file) {
+        List<String> lines = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                lines.add(line);
+            }
+            return lines;
+        } catch (IOException ioe) {
+            throw new RuntimeException(ioe);
+        }
+    }
 
     private void send(Part p, String destination) {
         switch (destination) {
@@ -22,6 +59,7 @@ public class Aoc {
                 pile.get(destination).process(p);
         }
     }
+
     private void sendRange(PartRange p, String destination) {
         switch (destination) {
             case "R":
@@ -33,20 +71,6 @@ public class Aoc {
             default:
                 pile.get(destination).processRange(p);
         }
-    }
-
-    private final Map<String, Workflow> pile;
-    private final List<Part> toProcess;
-    private final List<Part> rejected = new ArrayList<>();
-    private final List<Part> accepted = new ArrayList<>();
-    private final List<PartRange> rejectedRange = new ArrayList<>();
-    private final List<PartRange> acceptedRange = new ArrayList<>();
-
-
-    public Aoc(String file) {
-        List<String> lines = readFile(file);
-        this.pile = parseWorkflows(lines);
-        this.toProcess = parseParts(lines);
     }
 
     private List<Part> parseParts(List<String> lines) {
@@ -99,15 +123,6 @@ public class Aoc {
         return new Workflow(rulesList);
     }
 
-    public static void main(String[] args) throws IOException {
-        String file = args[0];
-        Aoc aoc = new Aoc(file);
-        aoc.process();
-        System.out.format("total accepted attributes: %d\n", aoc.acceptedSum());
-        aoc.processRange();
-        System.out.format("total accepted permutations: %d\n", aoc.acceptedRangePermutationsSum());
-    }
-
     private long acceptedRangePermutationsSum() {
         return acceptedRange.stream().mapToLong(range -> range.product()).sum();
     }
@@ -131,19 +146,6 @@ public class Aoc {
         return accepted.stream().mapToInt(Part::sum).sum();
     }
 
-    private static List<String> readFile(String file) {
-        List<String> lines = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                lines.add(line);
-            }
-            return lines;
-        } catch (IOException ioe) {
-            throw new RuntimeException(ioe);
-        }
-    }
-
     private class Workflow {
         private final List<CanProcess> rules;
 
@@ -165,12 +167,12 @@ public class Aoc {
 
         public void processRange(PartRange partRange) {
             var current = partRange;
-            for (var rule:rules){
+            for (var rule : rules) {
                 PartRangeSplit result = rule.processRange(current);
-                if(result.hasPass()){
+                if (result.hasPass()) {
                     Aoc.this.sendRange(result.getPassSplit(), result.getPassDest());
                 }
-                if(result.hasFail()){
+                if (result.hasFail()) {
                     current = result.getFailSplit();
                 }
             }

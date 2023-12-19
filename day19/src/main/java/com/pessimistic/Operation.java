@@ -8,9 +8,13 @@ public enum Operation {
 
     private final String asString;
 
+    Operation(String asString) {
+        this.asString = asString;
+    }
+
     public static Operation parse(String asString) {
         return Arrays.stream(Operation.values())
-                .filter(op->op.asString.equals(asString))
+                .filter(op -> op.asString.equals(asString))
                 .findFirst()
                 .orElseThrow();
     }
@@ -20,9 +24,5 @@ public enum Operation {
             case GT -> l > r;
             case LT -> l < r;
         };
-    }
-
-    Operation(String asString) {
-        this.asString = asString;
     }
 }

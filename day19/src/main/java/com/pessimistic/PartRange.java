@@ -12,6 +12,6 @@ public record PartRange(Range x, Range m, Range a, Range s) {
     }
 
     public long product() {
-        return x.width()*m.width()*a.width()*s.width();
+        return x.width() * m.width() * a.width() * s.width();
     }
 }

@@ -16,6 +16,6 @@ public class TerminatingRule implements CanProcess {
 
     @Override
     public PartRangeSplit processRange(PartRange partRange) {
-        return new PartRangeSplit(partRange,destination);
+        return new PartRangeSplit(partRange, destination);
     }
 }
