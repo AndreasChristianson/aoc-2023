@@ -143,10 +143,11 @@ The current plan for using a different language each day.
     - brevity: (6/10)
     - I enjoy python a lot. lots of resources online. permissive typing hints. I just wish it was whitespace agnostic.
 19. java 21
-    - tooling: How easy was it to install, how easy to get to hello world, how was there ide support, did the errors messages make sense
-    - experience: How much experience did I have with this sort of language going in.
-    - sugar: How much syntactical sugar was built into the language? How easy was it to pull outside modules? How large is the ecosystem?
-    - brevity: How terse is the language? Is it good for doing things quickly? Is it a good fit for scripting?
+    - tooling: (9/10)
+    - experience: (8/10)
+    - sugar: (10/10)
+    - brevity: (3/10)
+    - Feels like coming home after the disaster that was zig.
 20. C#
 21. kotlin
 22. deno ( yes, I know this is cheating )
