@@ -1,7 +1,5 @@
 package com.pessimistic;
 
-import reactor.util.function.Tuple2;
-
 import java.util.Optional;
 
 public class Rule implements CanProcess {
@@ -48,15 +46,5 @@ public class Rule implements CanProcess {
             );
         }
         throw new AssertionError();
-    }
-
-    @Override
-    public String toString() {
-        return "Rule{" +
-                "op=" + op +
-                ", att=" + att +
-                ", threshold=" + threshold +
-                ", destination='" + destination + '\'' +
-                '}';
     }
 }

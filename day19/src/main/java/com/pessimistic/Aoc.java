@@ -102,13 +102,9 @@ public class Aoc {
     public static void main(String[] args) throws IOException {
         String file = args[0];
         Aoc aoc = new Aoc(file);
-//        System.out.println(part1);
         aoc.process();
         System.out.format("total accepted attributes: %d\n", aoc.acceptedSum());
-        aoc.accepted.clear();
-        aoc.rejected.clear();
         aoc.processRange();
-        System.out.println(aoc);
         System.out.format("total accepted permutations: %d\n", aoc.acceptedRangePermutationsSum());
     }
 
@@ -129,18 +125,6 @@ public class Aoc {
         for (var part : toProcess) {
             pile.get("in").process(part);
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Aoc{" +
-                "pile=" + pile +
-                ", toProcess=" + toProcess +
-                ", rejected=" + rejected +
-                ", accepted=" + accepted +
-                ", rejectedRange=" + rejectedRange +
-                ", acceptedRange=" + acceptedRange +
-                '}';
     }
 
     private int acceptedSum() {
@@ -165,13 +149,6 @@ public class Aoc {
 
         private Workflow(List<CanProcess> rules) {
             this.rules = rules;
-        }
-
-        @Override
-        public String toString() {
-            return "Workflow{" +
-                    "rules=" + rules +
-                    '}';
         }
 
         public void process(Part p) {

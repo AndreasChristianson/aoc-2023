@@ -18,11 +18,4 @@ public class TerminatingRule implements CanProcess {
     public PartRangeSplit processRange(PartRange partRange) {
         return new PartRangeSplit(partRange,destination);
     }
-
-    @Override
-    public String toString() {
-        return "TerminatingRule{" +
-                "destination='" + destination + '\'' +
-                '}';
-    }
 }

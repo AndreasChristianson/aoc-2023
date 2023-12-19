@@ -1,19 +1,8 @@
 package com.pessimistic;
 
-import reactor.util.function.Tuple2;
-import reactor.util.function.Tuples;
-
 public class Range {
     private final int upperBound;
     private final int lowerBound;
-
-    @Override
-    public String toString() {
-        return "Range{" +
-                "upperBound=" + upperBound +
-                ", lowerBound=" + lowerBound +
-                '}';
-    }
 
     public Range(int lowerBound, int upperBound) {
         this.lowerBound = lowerBound;
@@ -50,6 +39,6 @@ public class Range {
     }
 
     public long width() {
-        return upperBound-lowerBound+1;
+        return upperBound - lowerBound + 1;
     }
 }
