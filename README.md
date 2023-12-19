@@ -123,10 +123,30 @@ The current plan for using a different language each day.
         - I don't like this book, though.
     - I just used one big file. Need to clean that up.
 15. c++
+    - tooling: (8/10)
+    - experience: (4/10)
+    - sugar: (6/10)
+    - brevity: (4/10)
+    - I like the std lib. It is already installed on a lot of machines.
 16. c
+    - tooling: (8/10)
+    - experience: (5/10)
+    - sugar: (3/10)
+    - brevity: (3/10)
+    - Not for day to day use. Runs fast, though.
 17. zig
+    - grr
 18. python
+    - tooling: (9/10)
+    - experience: (4/10)
+    - sugar: (8/10)
+    - brevity: (6/10)
+    - I enjoy python a lot. lots of resources online. permissive typing hints. I just wish it was whitespace agnostic.
 19. java 21
+    - tooling: How easy was it to install, how easy to get to hello world, how was there ide support, did the errors messages make sense
+    - experience: How much experience did I have with this sort of language going in.
+    - sugar: How much syntactical sugar was built into the language? How easy was it to pull outside modules? How large is the ecosystem?
+    - brevity: How terse is the language? Is it good for doing things quickly? Is it a good fit for scripting?
 20. C#
 21. kotlin
 22. deno ( yes, I know this is cheating )
@@ -158,3 +178,7 @@ These have proved trying in the past.
   - too much build-your-own-helper mindset
 - COBOL
   - After spending an hour, I was still researching out how to read records from a text file.
+- zig
+  - The error messages are difficult to parse
+  - Limited ide support
+  - No ecosystem of answers
