@@ -1,11 +1,5 @@
 internal class FlipFlop : Node
 {
-    enum Status
-    {
-        On,
-        Off,
-    }
-
     private Status _status = Status.Off;
 
     public FlipFlop(string name) : base(name)
@@ -38,5 +32,11 @@ internal class FlipFlop : Node
         }
 
         throw new InvalidOperationException();
+    }
+
+    private enum Status
+    {
+        On,
+        Off
     }
 }

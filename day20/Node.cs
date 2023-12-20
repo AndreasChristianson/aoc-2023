@@ -1,21 +1,18 @@
-using System.Collections;
-using System.Threading.Tasks.Dataflow;
-using System.Xml;
-
 internal abstract class Node
 {
-    public override string ToString()
-    {
-        return $"{name}";
-    }
-
-    public readonly List<Node> Outputs = new();
     public readonly List<Node> Inputs = new();
     public readonly string name;
+
+    public readonly List<Node> Outputs = new();
 
     protected Node(string name)
     {
         this.name = name;
+    }
+
+    public override string ToString()
+    {
+        return $"{name}";
     }
 
     public virtual void RegisterInput(Node input)
@@ -50,5 +47,5 @@ internal abstract class Node
 internal enum Pulse
 {
     High,
-    Low,
+    Low
 }

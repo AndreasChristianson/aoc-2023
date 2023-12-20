@@ -4,11 +4,13 @@
     {
         return numbers.Aggregate(lcm);
     }
-    static long lcm(long a, long b)
+
+    private static long lcm(long a, long b)
     {
         return Math.Abs(a * b) / GCD(a, b);
     }
-    static long GCD(long a, long b)
+
+    private static long GCD(long a, long b)
     {
         return b == 0 ? a : GCD(b, a % b);
     }

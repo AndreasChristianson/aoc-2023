@@ -1,21 +1,20 @@
-﻿using System.Diagnostics;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
-class Aoc
+internal class Aoc
 {
-    private static Regex rx = new Regex(@"^(?<type>[%&]?)(?<name>\w*) -> (?<destinations>.*)$");
+    private static readonly Regex rx = new(@"^(?<type>[%&]?)(?<name>\w*) -> (?<destinations>.*)$");
     private readonly Node broadcaster;
-    private int low;
-    private int high;
-    private Dummy dummy= new Dummy();
-    private int buttonCount = 0;
+    private int buttonCount;
+    private readonly Dummy dummy = new();
     private Node hb;
+    private int high;
+    private int low;
 
 
     private Aoc(IEnumerable<string> lines)
     {
         Dictionary<string, Node> nodes = new();
-        Dictionary<Node,string[]> links = new();
+        Dictionary<Node, string[]> links = new();
         foreach (var line in lines)
         {
             var matches = rx.Matches(line);
@@ -26,11 +25,11 @@ class Aoc
             nodes[name] = node;
             links[node] = destinations;
         }
-        
+
         foreach (var link in links)
         {
             var node = link.Key;
-            
+
             foreach (var name in link.Value)
             {
                 if (!nodes.ContainsKey(name))
@@ -39,6 +38,7 @@ class Aoc
                     node.RegisterOutput(dummy);
                     continue;
                 }
+
                 nodes[name].RegisterInput(node);
                 node.RegisterOutput(nodes[name]);
             }
@@ -48,30 +48,25 @@ class Aoc
         hb = nodes["hb"];
     }
 
-    static void Main(string[] args)
+    private static void Main(string[] args)
     {
-        Dictionary<string, Node> nodes = new Dictionary<string, Node>();
+        var nodes = new Dictionary<string, Node>();
 
-        
+
         var lines = File.ReadLines(args[0]);
         var aoc = new Aoc(lines);
 
-        for (int i = 0; i < 1000; i++)
-        {
-            aoc.propogate();
+        for (var i = 0; i < 1000; i++) aoc.propogate();
 
-        }
-        Console.WriteLine($"low: {aoc.low}, high: {aoc.high}, product: {aoc.high*aoc.low}");
-        
+        Console.WriteLine($"low: {aoc.low}, high: {aoc.high}, product: {aoc.high * aoc.low}");
+
         // var aoc2 = new Aoc(lines);
         //
         // while (aoc2.dummy.lastRecieved!=Pulse.Low)
         // {
         //     aoc2.propogate();
         // }
-        Console.WriteLine($"button count: {Helpers.LCM([3733,3761,4001,4021])}");
-        
-
+        Console.WriteLine($"button count: {Helpers.LCM([3733, 3761, 4001, 4021])}");
     }
 
     private void propogate()
@@ -94,11 +89,8 @@ class Aoc
                     high++;
                     break;
             }
-            foreach (var newMessage in newMessages)
-            {
-                queue.Enqueue(newMessage);
-            }
-        }
 
+            foreach (var newMessage in newMessages) queue.Enqueue(newMessage);
+        }
     }
 }
