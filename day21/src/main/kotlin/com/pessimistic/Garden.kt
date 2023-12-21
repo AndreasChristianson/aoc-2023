@@ -76,7 +76,7 @@ class Garden(lines: Array<String>) {
     }
 
     fun planWalk(startingLocation: Pair<Int, Int>) = iterator {
-        val adjust = height*width*100
+        val adjust = height * width * 100
         val (startingRow, startingCol) = startingLocation
         val startLoc = Pair(startingRow + adjust, startingCol + adjust)
         var processing = mutableSetOf(startLoc)
@@ -88,10 +88,10 @@ class Garden(lines: Array<String>) {
                 processing.remove(current)
                 val (row, col) = current
 
-                if ( infiniteGet(row, col + 1)) {
+                if (infiniteGet(row, col + 1)) {
                     nextCycle.add(Pair(row, col + 1))
                 }
-                if ( infiniteGet(row, col - 1)) {
+                if (infiniteGet(row, col - 1)) {
                     nextCycle.add(Pair(row, col - 1))
                 }
                 if (infiniteGet(row + 1, col)) {
@@ -110,10 +110,6 @@ class Garden(lines: Array<String>) {
 
     private fun infiniteGet(row: Int, col: Int): Boolean {
         val ret = grid[Pair(row % height, col % width)]
-        if(ret == null){
-            println(Pair(row % height, col % width))
-            println(Pair(row , col ))
-        }
         return ret?.walkable!!
     }
 }

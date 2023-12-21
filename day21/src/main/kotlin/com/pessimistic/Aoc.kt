@@ -11,13 +11,13 @@ fun main(args: Array<String>) {
     println(garden)
     val beds = garden.walk(64, garden.start)
     println(beds.size)
-    val seq=garden
+    val seq = garden
         .planWalk(garden.startLocation)
         .asSequence()
         .withIndex()
-        .filter { (it.index-65)%131==0 }
+        .filter { (it.index - 65) % 131 == 0 }
         .take(2)
-    for (i in seq){
+    for (i in seq) {
         println("${i.index}: ${i.value}")
     }
 
@@ -30,8 +30,8 @@ fun main(args: Array<String>) {
     //   589 308232
     //   720 460308
     //   851 642778
-    //first deriv: 30500 60894 91288 121682 152076 182470 // rate of change
-    //second deriv: 30394 30394 30394 30394 30394 30394 // rate of rate of change
+    // first deriv: 30500 60894 91288 121682 152076 182470 // rate of change
+    // second deriv: 30394 30394 30394 30394 30394 30394 // rate of rate of change
     /*
     beds'' == 30394
     beds' == 30394 * gardens + c1
@@ -43,9 +43,11 @@ fun main(args: Array<String>) {
      */
 
     val targetNumberOfSteps: Long = 26501365
-    val remainingTarget: Long = targetNumberOfSteps - 65
-    val targetNumberOfGardens: Long = remainingTarget / 131
-    val bedsVisited = 30394 * targetNumberOfGardens * targetNumberOfGardens / 2 + 15303 * targetNumberOfGardens + 3868
+    val remainingTarget: Long = targetNumberOfSteps - 65 // reached the first edge
+    val targetNumberOfGardens: Long = remainingTarget / 131 // looking to traverse 202300 gardens
+    val bedsVisited = 30394 / 2 * targetNumberOfGardens * targetNumberOfGardens +
+            15303 * targetNumberOfGardens +
+            3868
     println(bedsVisited)
 }
 

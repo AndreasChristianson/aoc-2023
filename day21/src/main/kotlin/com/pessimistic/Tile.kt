@@ -1,8 +1,6 @@
 package com.pessimistic
 
-class Tile(tileType: TileType, location: Pair<Int, Int>) {
-    val tileType = tileType
-    val location = location
+class Tile(val tileType: TileType, val location: Pair<Int, Int>) {
     val links: MutableList<Tile> = mutableListOf()
 
     val walkable
