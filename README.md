@@ -152,8 +152,8 @@ The current plan for using a different language each day.
 21. kotlin
 22. deno ( yes, I know this is cheating )
 23. dart
-24. javascript
-25. go
+24. go
+25. javascript
 
 ## alternatives
 
